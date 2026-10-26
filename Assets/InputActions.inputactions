@@ -18,7 +18,7 @@
                 {
                     "name": "Turn",
                     "type": "Value",
-                    "id": "befee6c6-21cc-4697-8a31-0a92f16fc2bf",
+                    "id": "cfbe0722-f174-4ddf-a708-468db2addf64",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -30,7 +30,7 @@
                     "name": "3D Vector",
                     "id": "9d3b16ff-018a-49f4-93e8-ba2d160d3a5c",
                     "path": "3DVector",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -82,15 +82,59 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "dc14cc98-f37b-426a-b648-a2f2b7014ebf",
-                    "path": "",
+                    "name": "1D Axis",
+                    "id": "336b0094-4300-4826-88e9-3d87244a0670",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "880c56bf-17f1-4dce-9343-f15fe0a4597d",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Turn",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "f6a65102-a74a-4f20-9be4-9d50965330e5",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "9a3e17d0-3e99-476d-8204-64eba484e47f",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "2181a720-7807-4d27-801e-6dd4b801f009",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
