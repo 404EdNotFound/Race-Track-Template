@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class CarMovementScript : MonoBehaviour
 {
     private float carSpeed = 5f;
+    private float maxSpeed; // will add later on for applying actual car mechanics
     private float angle = 90f;
 
     PlayerInput carInput;
