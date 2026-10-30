@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class CarMovementScript : MonoBehaviour
 {
     private float carSpeed = 0f;
-    private float maxSpeed = 5f; // will add later on for applying actual car mechanics
-    private float acceleration = 5f;
+    [SerializeField] private float maxSpeed = 5f; // will add later on for applying actual car mechanics
+    [SerializeField] private float acceleration = 5f;
     private float angle = 90f;
 
     PlayerInput carInput;
@@ -22,17 +22,10 @@ public class CarMovementScript : MonoBehaviour
         carRotate = carInput.actions.FindAction("Turn");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         MoveCar();
         RotateCar();
-        Debug.Log(carSpeed);
     }
 
     void MoveCar()
@@ -58,6 +51,6 @@ public class CarMovementScript : MonoBehaviour
     {
         if (carSpeed == 0f && (transform.rotation.z == 90 || transform.rotation.z == -90)) return;
         float rotateDirection = carRotate.ReadValue<float>();
-        rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotateDirection * (carSpeed * 0.25f) * angle * Time.fixedDeltaTime, 0f));
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotateDirection * (carSpeed * 0.1f) * angle * Time.fixedDeltaTime, 0f));
     }
 }
