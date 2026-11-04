@@ -11,6 +11,9 @@ public class CarMovementScript : MonoBehaviour
     PlayerInput carInput;
     InputAction carAction;
     InputAction carRotate;
+    InputAction spawnAction;
+    InputAction markPointAction;
+    InputAction spawnPointAction;
     Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,12 +23,16 @@ public class CarMovementScript : MonoBehaviour
         carInput = GetComponent<PlayerInput>();
         carAction = carInput.actions.FindAction("Move");
         carRotate = carInput.actions.FindAction("Turn");
+        spawnAction = carInput.actions.FindAction("Spawn");
+        markPointAction = carInput.actions.FindAction("MarkPoint");
+        spawnPointAction = carInput.actions.FindAction("ResetPoint");
     }
 
     private void FixedUpdate()
     {
         MoveCar();
         RotateCar();
+        keyboardTriggers();
     }
 
     void MoveCar()
@@ -52,5 +59,21 @@ public class CarMovementScript : MonoBehaviour
         if (carSpeed == 0f && (transform.rotation.z == 90 || transform.rotation.z == -90)) return;
         float rotateDirection = carRotate.ReadValue<float>();
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotateDirection * (carSpeed * 0.1f) * angle * Time.fixedDeltaTime, 0f));
+    }
+
+    void keyboardTriggers()
+    {
+        if (spawnAction.WasPressedThisFrame())
+        {
+            FindAnyObjectByType<KeyboardToggle>().spawnPitStop(rb.position, rb.rotation);
+        }
+
+        if (markPointAction.WasPressedThisFrame()) {
+            FindAnyObjectByType<KeyboardToggle>().assignResetPoint(gameObject);
+        }
+
+        if (spawnPointAction.WasPressedThisFrame()) {
+            FindAnyObjectByType<KeyboardToggle>().respawnPoint();
+        }
     }
 }

@@ -32,6 +32,24 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MarkPoint",
+                    "type": "Button",
+                    "id": "24c6087e-da8c-49ae-bf97-b37ad089fa39",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ResetPoint",
+                    "type": "Button",
+                    "id": "d6ccdcf2-f8eb-4969-b1cf-45abfa9780a0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -94,7 +112,7 @@
                     "name": "1D Axis",
                     "id": "336b0094-4300-4826-88e9-3d87244a0670",
                     "path": "1DAxis",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "",
                     "action": "Turn",
@@ -159,11 +177,22 @@
                 {
                     "name": "",
                     "id": "8ff1b0f8-96aa-4201-823f-2ee9bdd786e5",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Spawn",
+                    "action": "MarkPoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86bd6e3f-dbee-4988-82c4-eba27c68eca0",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetPoint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

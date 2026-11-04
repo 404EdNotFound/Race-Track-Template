@@ -1,6 +1,0 @@
-﻿<Solution>
-  <Project Path="Unity.Splines.Examples.Editor.csproj" />
-  <Project Path="Unity.Splines.Examples.csproj" />
-  <Project Path="Assembly-CSharp-Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
-</Solution>
