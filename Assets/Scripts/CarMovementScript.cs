@@ -63,16 +63,16 @@ public class CarMovementScript : MonoBehaviour
 
     void keyboardTriggers()
     {
-        if (spawnAction.WasPressedThisFrame())
+        if (spawnAction.IsPressed())
         {
             FindAnyObjectByType<KeyboardToggle>().spawnPitStop(rb.position, rb.rotation);
         }
 
-        if (markPointAction.WasPressedThisFrame()) {
+        if (markPointAction.IsPressed()) {
             FindAnyObjectByType<KeyboardToggle>().assignResetPoint(gameObject);
         }
 
-        if (spawnPointAction.WasPressedThisFrame()) {
+        if (spawnPointAction.IsPressed()) {
             FindAnyObjectByType<KeyboardToggle>().respawnPoint();
         }
     }
