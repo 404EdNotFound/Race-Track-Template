@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Edwin\\Documents\\Unity\\Repos to Clone\\Race-Track-Template\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C9E0E08E-5FF5-395E-A801-8ADFDBDDF20E}|Assembly-CSharp.csproj|C:\\Users\\Edwin\\Documents\\Unity\\Repos to Clone\\Race-Track-Template\\assets\\scripts\\keyboardtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9E0E08E-5FF5-395E-A801-8ADFDBDDF20E}|Assembly-CSharp.csproj|c:\\users\\edwin\\documents\\unity\\repos to clone\\race-track-template\\assets\\scripts\\keyboardtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9E0E08E-5FF5-395E-A801-8ADFDBDDF20E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\keyboardtoggle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C9E0E08E-5FF5-395E-A801-8ADFDBDDF20E}|Assembly-CSharp.csproj|c:\\users\\edwin\\documents\\unity\\repos to clone\\race-track-template\\assets\\scripts\\carmovementscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C9E0E08E-5FF5-395E-A801-8ADFDBDDF20E}|Assembly-CSharp.csproj|C:\\Users\\Edwin\\Documents\\Unity\\Repos to Clone\\Race-Track-Template\\assets\\scripts\\carmovementscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C9E0E08E-5FF5-395E-A801-8ADFDBDDF20E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\carmovementscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\KeyboardToggle.cs",
               "ToolTip": "C:\\Users\\Edwin\\Documents\\Unity\\Repos to Clone\\Race-Track-Template\\Assets\\Scripts\\KeyboardToggle.cs",
               "RelativeToolTip": "Assets\\Scripts\\KeyboardToggle.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAADwvzYAAABgAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAqwAoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-02T09:21:04.519Z",
               "EditorCaption": ""
@@ -45,7 +45,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\CarMovementScript.cs",
               "ToolTip": "C:\\Users\\Edwin\\Documents\\Unity\\Repos to Clone\\Race-Track-Template\\Assets\\Scripts\\CarMovementScript.cs",
               "RelativeToolTip": "Assets\\Scripts\\CarMovementScript.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAkwEEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-26T12:18:25.188Z",
               "EditorCaption": ""

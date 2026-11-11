@@ -16,6 +16,9 @@ public class CarMovementScript : MonoBehaviour
     InputAction spawnPointAction;
     Rigidbody rb;
 
+    public bool onGround;
+    public bool onTrack;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +36,20 @@ public class CarMovementScript : MonoBehaviour
         MoveCar();
         RotateCar();
         keyboardTriggers();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")) { onGround = true; }
+
+        if (collision.gameObject.CompareTag("Track")) { onTrack = true; }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")) { onGround = false; }
+
+        if (collision.gameObject.CompareTag("Track")) { onTrack = false; }
     }
 
     void MoveCar()
@@ -68,7 +85,7 @@ public class CarMovementScript : MonoBehaviour
             FindAnyObjectByType<KeyboardToggle>().spawnPitStop(rb.position, rb.rotation);
         }
 
-        if (markPointAction.IsPressed()) {
+        if (markPointAction.IsPressed() && (onGround || onTrack)) {
             FindAnyObjectByType<KeyboardToggle>().assignResetPoint(gameObject);
         }
 

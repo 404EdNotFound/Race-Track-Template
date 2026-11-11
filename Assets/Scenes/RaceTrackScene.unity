@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 683020518}
   m_Layer: 0
   m_Name: Spline
-  m_TagString: Untagged
+  m_TagString: Track
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Sides: 8
   m_SegmentsPerUnit: 4
   m_Capped: 0
-  m_Radius: 3
+  m_Radius: 2
   m_Range: {x: 0, y: 1}
   m_FlipNormals: 0
   m_Shape:
@@ -1322,6 +1322,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarMovementScript
   maxSpeed: 5
   acceleration: 5
+  onGround: 0
+  onTrack: 0
 --- !u!114 &1841443201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,7 +1430,7 @@ GameObject:
   - component: {fileID: 1988816769}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
