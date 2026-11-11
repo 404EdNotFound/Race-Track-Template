@@ -31,7 +31,7 @@ public class KeyboardToggle : MonoBehaviour
     public void assignResetPoint(GameObject gameObject) {
         spawnPosition = gameObject.transform.position;
         spawnRotation = gameObject.transform.rotation;
-        Vector3 tempSet = new Vector3(0, 0.5f, 0);
+        Vector3 tempSet = new Vector3(0, 0.6f, 0);
 
         if (temp == null)
         {
@@ -49,13 +49,13 @@ public class KeyboardToggle : MonoBehaviour
     {
         spawnPosition = gameObject.transform.position;
         spawnRotation = gameObject.transform.rotation;
-        Vector3 tempSet = new Vector3(0, 0.5f, 0);
+        Vector3 tempSet = new Vector3(0, 0.6f, 0);
 
         TextMeshPro wayPointTemp = Instantiate(textPrefab, spawnPosition + tempSet, spawnRotation);
-        wayPointTemp.text = "WayPoint: " + Vector3.Distance(wayPointTemp.transform.position, spawnPosition);
+        wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, wayPointTemp.transform.position).ToString();
     }
 
     public void respawnPoint() {
-        gameObject.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
+        gameObject.transform.SetPositionAndRotation(temp.transform.position, temp.transform.rotation);
     }
 }

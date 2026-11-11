@@ -14,7 +14,10 @@ public class CarMovementScript : MonoBehaviour
     InputAction spawnAction;
     InputAction markPointAction;
     InputAction spawnPointAction;
+    InputAction assignWayPoint;
     Rigidbody rb;
+
+    KeyboardToggle keyboardToggle;
 
     public bool onGround;
     public bool onTrack;
@@ -29,6 +32,9 @@ public class CarMovementScript : MonoBehaviour
         spawnAction = carInput.actions.FindAction("Spawn");
         markPointAction = carInput.actions.FindAction("MarkPoint");
         spawnPointAction = carInput.actions.FindAction("ResetPoint");
+        assignWayPoint = carInput.actions.FindAction("AssignWayPoint");
+
+        keyboardToggle = FindAnyObjectByType<KeyboardToggle>();
     }
 
     private void FixedUpdate()
@@ -82,15 +88,19 @@ public class CarMovementScript : MonoBehaviour
     {
         if (spawnAction.IsPressed())
         {
-            FindAnyObjectByType<KeyboardToggle>().spawnPitStop(rb.position, rb.rotation);
+            keyboardToggle.spawnPitStop(rb.position, rb.rotation);
         }
 
         if (markPointAction.IsPressed() && (onGround || onTrack)) {
-            FindAnyObjectByType<KeyboardToggle>().assignResetPoint(gameObject);
+            keyboardToggle.assignResetPoint(gameObject);
+        }
+
+        if (assignWayPoint.IsPressed() && (onGround || onTrack)) {
+            keyboardToggle.assignWayPoint(gameObject);
         }
 
         if (spawnPointAction.IsPressed()) {
-            FindAnyObjectByType<KeyboardToggle>().respawnPoint();
+            keyboardToggle.respawnPoint();
         }
     }
 }

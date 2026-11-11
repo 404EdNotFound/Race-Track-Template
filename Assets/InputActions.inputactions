@@ -50,6 +50,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AssignWayPoint",
+                    "type": "Button",
+                    "id": "6ceefd83-7620-47c5-8480-83949d9ae149",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -193,6 +202,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ResetPoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0f04aba8-c9a7-41c3-9970-2ce8c2f66dbe",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AssignWayPoint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
