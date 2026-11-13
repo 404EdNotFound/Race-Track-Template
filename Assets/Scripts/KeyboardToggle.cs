@@ -9,6 +9,7 @@ public class KeyboardToggle : MonoBehaviour
 
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,14 +19,12 @@ public class KeyboardToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
         Quaternion offset = Quaternion.Euler(0f, 90f, 0f);
-        Quaternion finalRotation = rotation * offset;
-        GameObject temp = Instantiate(pitPrefab, position, finalRotation);
+        GameObject temp = Instantiate(pitPrefab, position, rotation * offset);
     }
 
     public void assignResetPoint(GameObject gameObject) {
@@ -52,10 +51,13 @@ public class KeyboardToggle : MonoBehaviour
         Vector3 tempSet = new Vector3(0, 0.6f, 0);
 
         TextMeshPro wayPointTemp = Instantiate(textPrefab, spawnPosition + tempSet, spawnRotation);
-        wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, wayPointTemp.transform.position).ToString();
+        wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, textPrefab.transform.position).ToString();
     }
 
     public void respawnPoint() {
-        gameObject.transform.SetPositionAndRotation(temp.transform.position, temp.transform.rotation);
+        if (temp != null)
+        {
+            gameObject.transform.SetPositionAndRotation(temp.transform.position, temp.transform.rotation);
+        }
     }
 }
