@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 
+using UnityEngine.Splines;
+
 public class KeyboardToggle : MonoBehaviour
 {
     public GameObject pitPrefab;
@@ -10,10 +12,11 @@ public class KeyboardToggle : MonoBehaviour
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
 
+    public SplineContainer splineContainer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -23,7 +26,12 @@ public class KeyboardToggle : MonoBehaviour
 
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
-    GameObject temp = Instantiate(pitPrefab, position, rotation * Quaternion.Euler(0f, 90f, 0f));
+        for (float t = 0; t <= 1; t += 0.1f)
+        {
+            Vector3 splinePos = splineContainer.EvaluatePosition(t);
+            Vector3 splineTan = splineContainer.EvaluateTangent(t);
+            GameObject temp = Instantiate(pitPrefab, splinePos, Quaternion.LookRotation(splineTan));
+        }
     }
 
     public void assignResetPoint(GameObject gameObject) {
@@ -50,7 +58,7 @@ public class KeyboardToggle : MonoBehaviour
         Vector3 tempSet = new Vector3(0, 0.6f, 0);
 
         TextMeshPro wayPointTemp = Instantiate(textPrefab, spawnPosition + tempSet, spawnRotation);
-        wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, textPrefab.transform.position).ToString();
+        wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, textPrefab.transform.position);
     }
 
     public void respawnPoint() {
