@@ -88,7 +88,7 @@ public class CarMovementScript : MonoBehaviour
     {
         if (spawnAction.IsPressed())
         {
-            keyboardToggle.spawnPitStop(rb.position, rb.rotation);
+            keyboardToggle.spawnPitStop(gameObject.transform.position, gameObject.transform.rotation);
         }
 
         if (markPointAction.IsPressed() && (onGround || onTrack)) {

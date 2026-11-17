@@ -23,8 +23,7 @@ public class KeyboardToggle : MonoBehaviour
 
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
-        Quaternion offset = Quaternion.Euler(0f, 90f, 0f);
-        GameObject temp = Instantiate(pitPrefab, position, rotation * offset);
+    GameObject temp = Instantiate(pitPrefab, position, rotation * Quaternion.Euler(0f, 90f, 0f));
     }
 
     public void assignResetPoint(GameObject gameObject) {
