@@ -24,13 +24,18 @@ public class KeyboardToggle : MonoBehaviour
     {
     }
 
+    // Needed help with this
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
         for (float t = 0; t <= 1; t += 0.1f)
         {
             Vector3 splinePos = splineContainer.EvaluatePosition(t);
             Vector3 splineTan = splineContainer.EvaluateTangent(t);
-            GameObject temp = Instantiate(pitPrefab, splinePos, Quaternion.LookRotation(splineTan));
+            Quaternion rotationOffset = Quaternion.Euler(0, 90, 0);
+            Vector3 finalRotation = rotationOffset * splineTan.normalized;
+            Vector3 positionOffset = new Vector3(2f, 0f, 1f);
+            Vector3 finalPosition = splinePos + finalRotation * -1f;
+            GameObject temp = Instantiate(pitPrefab, finalPosition, Quaternion.LookRotation(splineTan) * rotationOffset);
         }
     }
 
