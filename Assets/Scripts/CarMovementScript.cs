@@ -61,7 +61,7 @@ public class CarMovementScript : MonoBehaviour
     void MoveCar()
     {
         float Direction = carAction.ReadValue<Vector3>().z;
-        if ((Direction != 0) && (transform.rotation.z != 90 || transform.rotation.z != -90))
+        if ((Direction != 0))
         {
             carSpeed += acceleration * Direction * Time.fixedDeltaTime;
             carSpeed = Mathf.Clamp(carSpeed, -maxSpeed, maxSpeed);
@@ -91,11 +91,11 @@ public class CarMovementScript : MonoBehaviour
             keyboardToggle.spawnPitStop(gameObject.transform.position, gameObject.transform.rotation);
         }
 
-        if (markPointAction.IsPressed() && (onGround || onTrack)) {
+        if (markPointAction.IsPressed() && (!onGround && onTrack)) {
             keyboardToggle.assignResetPoint(gameObject);
         }
 
-        if (assignWayPoint.IsPressed() && (onGround || onTrack)) {
+        if (assignWayPoint.IsPressed() && (!onGround && onTrack)) {
             keyboardToggle.assignWayPoint(gameObject);
         }
 

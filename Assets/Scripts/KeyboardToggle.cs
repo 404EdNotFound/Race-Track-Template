@@ -53,7 +53,6 @@ public class KeyboardToggle : MonoBehaviour
             temp.transform.SetPositionAndRotation(spawnPosition + tempSet, spawnRotation);
         }
         temp.text = "Spawn Position: " + spawnPosition.ToString();
-
     }
 
     public void assignWayPoint(GameObject gameObject)
