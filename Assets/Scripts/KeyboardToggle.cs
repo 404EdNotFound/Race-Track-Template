@@ -24,7 +24,7 @@ public class KeyboardToggle : MonoBehaviour
     {
     }
 
-    // Needed help with this
+    // Will Change this to spawn based on the position of the car
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
         for (float t = 0; t <= 1; t += 0.1f)
@@ -72,3 +72,9 @@ public class KeyboardToggle : MonoBehaviour
         }
     }
 }
+
+// Try to make the track editable in runtime
+// Respawn Automatically (and also try to hold the reset button for at least 2 seconds instead of continously pressing)
+// Spawn Pit Stops based on the car position
+// Remove existing checkpoints
+// Think about Spawning Required Checkpoints
