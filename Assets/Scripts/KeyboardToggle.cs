@@ -17,6 +17,8 @@ public class KeyboardToggle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        temp = Instantiate(textPrefab, spawnPosition + new Vector3(0, 0.6f, 0), spawnRotation);
+        temp.text = "Spawn Position: " + spawnPosition.ToString();
     }
 
     // Update is called once per frame
@@ -27,16 +29,9 @@ public class KeyboardToggle : MonoBehaviour
     // Will Change this to spawn based on the position of the car
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
-        for (float t = 0; t <= 1; t += 0.1f)
-        {
-            Vector3 splinePos = splineContainer.EvaluatePosition(t);
-            Vector3 splineTan = splineContainer.EvaluateTangent(t);
-            Quaternion rotationOffset = Quaternion.Euler(0, 90, 0);
-            Vector3 finalRotation = rotationOffset * splineTan.normalized;
-            Vector3 positionOffset = new Vector3(2f, 0f, 1f);
-            Vector3 finalPosition = splinePos + finalRotation * -1f;
-            GameObject temp = Instantiate(pitPrefab, finalPosition, Quaternion.LookRotation(splineTan) * rotationOffset);
-        }
+        Quaternion offset = Quaternion.Euler(0f, 90f, 0f);
+        Quaternion finalRotation = rotation * offset;
+        GameObject temp = Instantiate(pitPrefab, position, finalRotation);
     }
 
     public void assignResetPoint(GameObject gameObject) {
@@ -44,14 +39,7 @@ public class KeyboardToggle : MonoBehaviour
         spawnRotation = gameObject.transform.rotation;
         Vector3 tempSet = new Vector3(0, 0.6f, 0);
 
-        if (temp == null)
-        {
-            temp = Instantiate(textPrefab, spawnPosition + tempSet, spawnRotation);
-        }
-        else
-        {
-            temp.transform.SetPositionAndRotation(spawnPosition + tempSet, spawnRotation);
-        }
+        temp.transform.SetPositionAndRotation(spawnPosition + tempSet, spawnRotation);
         temp.text = "Spawn Position: " + spawnPosition.ToString();
     }
 
@@ -68,7 +56,7 @@ public class KeyboardToggle : MonoBehaviour
     public void respawnPoint() {
         if (temp != null)
         {
-            gameObject.transform.SetPositionAndRotation(temp.transform.position, temp.transform.rotation);
+            gameObject.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
         }
     }
 }
@@ -76,5 +64,3 @@ public class KeyboardToggle : MonoBehaviour
 // Try to make the track editable in runtime
 // Respawn Automatically (and also try to hold the reset button for at least 2 seconds instead of continously pressing)
 // Spawn Pit Stops based on the car position
-// Remove existing checkpoints
-// Think about Spawning Required Checkpoints
