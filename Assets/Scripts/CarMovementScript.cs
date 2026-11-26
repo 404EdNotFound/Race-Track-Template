@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class CarMovementScript : MonoBehaviour
 {
     private float carSpeed = 0f;
-    [SerializeField] private float maxSpeed = 5f; // will add later on for applying actual car mechanics
+    [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float acceleration = 5f;
     private float angle = 90f;
 
@@ -25,6 +25,7 @@ public class CarMovementScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Initialises all components
         rb = GetComponent<Rigidbody>();
         carInput = GetComponent<PlayerInput>();
         carAction = carInput.actions.FindAction("Move");
@@ -39,11 +40,13 @@ public class CarMovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Used to call movements and keyboard triggers wherever possible
         MoveCar();
         RotateCar();
         keyboardTriggers();
     }
 
+    // Collision triggers as the Car as a Box Collider, used to check whether the car is on the track or the ground
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground")) { onGround = true; }
@@ -58,6 +61,7 @@ public class CarMovementScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Track")) { onTrack = false; }
     }
 
+    // Function used to move the car based on constant acceleration and limited speed
     void MoveCar()
     {
         float Direction = carAction.ReadValue<Vector3>().z;
@@ -77,6 +81,7 @@ public class CarMovementScript : MonoBehaviour
 
     }
 
+    // Used for rotation of the car!
     void RotateCar()
     {
         if (carSpeed == 0f) return;
@@ -84,9 +89,10 @@ public class CarMovementScript : MonoBehaviour
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, rotateDirection * (carSpeed * 0.1f) * angle * Time.fixedDeltaTime, 0f));
     }
 
+    // Keyboard triggers that are used ofr when a certain key is pressed and calls another script to perform these actions
     void keyboardTriggers()
     {
-        if (spawnAction.WasPerformedThisFrame() && (!onGround && onTrack))
+        if (spawnAction.WasPressedThisFrame() && (!onGround && onTrack))
         {
             keyboardToggle.spawnPitStop(gameObject.transform.position, gameObject.transform.rotation);
         }

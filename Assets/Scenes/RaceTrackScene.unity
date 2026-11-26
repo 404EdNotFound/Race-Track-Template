@@ -456,10 +456,10 @@ MonoBehaviour:
         z: 5.0856657
       Rotation:
         value:
-          x: -0.000000019383942
+          x: -0.000000019383938
           y: 0.69035393
-          z: -0.000000020313836
-          w: 0.72347176
+          z: -0.000000020313834
+          w: 0.7234718
     - Position:
         x: 55.61573
         y: 0
@@ -528,14 +528,14 @@ MonoBehaviour:
         z: 6.2776413
       Rotation:
         value:
-          x: 0.0000000029222607
-          y: 0.9896865
-          z: -4.2297701e-10
-          w: -0.14325027
+          x: 0.000000002922261
+          y: 0.98968655
+          z: -4.2297707e-10
+          w: -0.14325029
     - Position:
-        x: 52.805733
+        x: 53.430725
         y: 0
-        z: -54.590366
+        z: -49.214546
       TangentIn:
         x: 0
         y: 0
@@ -543,13 +543,13 @@ MonoBehaviour:
       TangentOut:
         x: 0
         y: 0
-        z: 5.8180695
+        z: 6.81808
       Rotation:
         value:
-          x: 0.0017127694
-          y: 0.9803469
-          z: 0.0010003683
-          w: -0.19727182
+          x: 0.0029644244
+          y: 0.98034394
+          z: 0.000748545
+          w: -0.19727227
     - Position:
         x: 15.405732
         y: 0
@@ -557,17 +557,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -12.539467
+        z: -12.722987
       TangentOut:
         x: 0
         y: 0
-        z: 12.69074
+        z: 12.718355
       Rotation:
         value:
-          x: -0.0000013520976
-          y: -0.694759
-          z: 0.0000013997463
-          w: 0.71924263
+          x: 0.000052311894
+          y: 0.7196549
+          z: -0.000050471168
+          w: -0.694332
     - Position:
         x: -22.844267
         y: 0
@@ -600,14 +600,14 @@ MonoBehaviour:
         z: 13.4416
       Rotation:
         value:
-          x: -0.00000002048351
-          y: 0.007087464
-          z: -0.0000028900317
+          x: -0.000000020483517
+          y: 0.0070874654
+          z: -0.0000028900322
           w: 0.99997497
     - Position:
-        x: -22.44427
+        x: -19.94427
         y: 0
-        z: 26.499998
+        z: 19.53
       TangentIn:
         x: 0
         y: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
         z: 6.958558
       Rotation:
         value:
-          x: -0.00003077381
+          x: -0.0000307738
           y: 0.4618622
           z: -0.000059097467
           w: 0.8869516
@@ -672,9 +672,9 @@ MonoBehaviour:
   m_RebuildFrequency: 30
   m_UpdateColliders: 1
   m_Sides: 8
-  m_SegmentsPerUnit: 4
+  m_SegmentsPerUnit: 2
   m_Capped: 0
-  m_Radius: 2
+  m_Radius: 4
   m_Range: {x: 0, y: 1}
   m_FlipNormals: 0
   m_Shape:
@@ -751,8 +751,8 @@ Transform:
   m_GameObject: {fileID: 683020512}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.705732, y: 0.03, z: 15.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -15.705732, y: 0.03, z: 18.1}
+  m_LocalScale: {x: 1, y: 0.021310758, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1416,7 +1416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardToggle
   pitPrefab: {fileID: 214599178249224625, guid: abe25da5a73c6624a83ae1a698afab2b, type: 3}
   textPrefab: {fileID: 1486984644376172217, guid: aba763861bac4a841b69afac7bb48283, type: 3}
-  splineContainer: {fileID: 683020513}
 --- !u!1 &1988816768
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-using UnityEngine.Splines;
-
 public class KeyboardToggle : MonoBehaviour
 {
     public GameObject pitPrefab;
@@ -12,11 +10,10 @@ public class KeyboardToggle : MonoBehaviour
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
 
-    public SplineContainer splineContainer;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Instantiates a reset point in case the user needs to restart wherever possible
         temp = Instantiate(textPrefab, spawnPosition + new Vector3(0, 0.6f, 0), spawnRotation);
         temp.text = "Spawn Position: " + spawnPosition.ToString();
     }
@@ -26,7 +23,7 @@ public class KeyboardToggle : MonoBehaviour
     {
     }
 
-    // Will Change this to spawn based on the position of the car
+    // Used to spawn a pitstop relative to the transformation of the car
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
         Quaternion offset = Quaternion.Euler(0f, 90f, 0f);
@@ -34,6 +31,7 @@ public class KeyboardToggle : MonoBehaviour
         GameObject temp = Instantiate(pitPrefab, position, finalRotation);
     }
 
+    // Used to set a marker point for the user the respawn
     public void assignResetPoint(GameObject gameObject) {
         spawnPosition = gameObject.transform.position;
         spawnRotation = gameObject.transform.rotation;
@@ -43,6 +41,7 @@ public class KeyboardToggle : MonoBehaviour
         temp.text = "Spawn Position: " + spawnPosition.ToString();
     }
 
+    // Used to assign a waypoint
     public void assignWayPoint(GameObject gameObject)
     {
         spawnPosition = gameObject.transform.position;
@@ -53,6 +52,7 @@ public class KeyboardToggle : MonoBehaviour
         wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, textPrefab.transform.position);
     }
 
+    // Respawns the car at the assigned position and rotation
     public void respawnPoint() {
         if (temp != null)
         {
