@@ -6,6 +6,7 @@ public class CarMovementScript : MonoBehaviour
     private float carSpeed = 0f;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float acceleration = 5f;
+
     private float angle = 90f;
 
     PlayerInput carInput;
@@ -36,7 +37,7 @@ public class CarMovementScript : MonoBehaviour
         assignWayPoint = carInput.actions.FindAction("AssignWayPoint");
 
         keyboardToggle = FindAnyObjectByType<KeyboardToggle>();
-    }
+}
 
     private void FixedUpdate()
     {
@@ -92,9 +93,8 @@ public class CarMovementScript : MonoBehaviour
     // Keyboard triggers that are used ofr when a certain key is pressed and calls another script to perform these actions
     void keyboardTriggers()
     {
-        if (spawnAction.WasPressedThisFrame() && (!onGround && onTrack))
-        {
-            keyboardToggle.spawnPitStop(gameObject.transform.position, gameObject.transform.rotation);
+        if (spawnAction.IsPressed() && (!onGround && onTrack)) {
+            keyboardToggle.spawnPitStop(rb.position, rb.rotation);
         }
 
         if (markPointAction.IsPressed() && (!onGround && onTrack)) {

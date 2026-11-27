@@ -7,8 +7,14 @@ public class KeyboardToggle : MonoBehaviour
     public TextMeshPro textPrefab;
     TextMeshPro temp;
 
+    [SerializeField] private float coolDownValue;
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
+
+    private float PitCoolDown = 0f;
+    private float WayPointCoolDown = 0f;
+    private int pitStopCounter = 0;
+    private int wayPointCounter = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,14 +27,35 @@ public class KeyboardToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CoolDown();
+        Debug.Log(pitStopCounter);
+        Debug.Log(wayPointCounter);
+    }
+
+    private void CoolDown()
+    {
+        if (PitCoolDown == 0) { return; }
+        PitCoolDown = Mathf.MoveTowards(PitCoolDown, 0f, Time.deltaTime);
+        Debug.Log(PitCoolDown);
+
+        if (WayPointCoolDown == 0) { return; }
+        WayPointCoolDown = Mathf.MoveTowards(WayPointCoolDown, 0f, Time.deltaTime);
+        Debug.Log(WayPointCoolDown);
     }
 
     // Used to spawn a pitstop relative to the transformation of the car
     public void spawnPitStop(Vector3 position, Quaternion rotation)
     {
-        Quaternion offset = Quaternion.Euler(0f, 90f, 0f);
-        Quaternion finalRotation = rotation * offset;
-        GameObject temp = Instantiate(pitPrefab, position, finalRotation);
+        if (PitCoolDown == 0)
+        {
+            Quaternion offset = Quaternion.Euler(0f, 90f, 0f);
+            Quaternion finalRotation = rotation * offset;
+            GameObject temp = Instantiate(pitPrefab, position, finalRotation);
+            PitCoolDown = coolDownValue;
+            pitStopCounter++;
+        }
+
+        else return;
     }
 
     // Used to set a marker point for the user the respawn
@@ -44,23 +71,31 @@ public class KeyboardToggle : MonoBehaviour
     // Used to assign a waypoint
     public void assignWayPoint(GameObject gameObject)
     {
-        spawnPosition = gameObject.transform.position;
-        spawnRotation = gameObject.transform.rotation;
-        Vector3 tempSet = new Vector3(0, 0.6f, 0);
+        if (WayPointCoolDown == 0)
+        {
+            spawnPosition = gameObject.transform.position;
+            spawnRotation = gameObject.transform.rotation;
+            Vector3 tempSet = new Vector3(0, 0.6f, 0);
 
-        TextMeshPro wayPointTemp = Instantiate(textPrefab, spawnPosition + tempSet, spawnRotation);
-        wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, textPrefab.transform.position);
+            TextMeshPro wayPointTemp = Instantiate(textPrefab, spawnPosition + tempSet, spawnRotation);
+            wayPointTemp.text = "WayPoint: " + Vector3.Distance(spawnPosition, textPrefab.transform.position);
+
+            WayPointCoolDown = coolDownValue;
+            wayPointCounter++;
+        }
+
+        else return;
+
     }
 
     // Respawns the car at the assigned position and rotation
-    public void respawnPoint() {
-        if (temp != null)
-        {
-            gameObject.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
-        }
+    public void respawnPoint() 
+    {
+        gameObject.transform.SetPositionAndRotation(spawnPosition, spawnRotation);
     }
 }
 
 // Try to make the track editable in runtime
 // Respawn Automatically (and also try to hold the reset button for at least 2 seconds instead of continously pressing)
-// Spawn Pit Stops based on the car position
+// Implement Cooldown Timer for Spawning pits to prevent many pits spawning at once (same with assigning waypoints)
+// Try to calculate real time distance with these waypoints!
